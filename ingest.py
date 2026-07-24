@@ -21,3 +21,10 @@ split_size = len(post_split)
 embeddings = OllamaEmbeddings(
     model="nomic-embed-text"
 )
+
+db = Chroma.from_documents(
+    documents = post_split,
+    embedding=embeddings,
+    persist_directory="chroma_db"
+)
+print(db._collection.count())

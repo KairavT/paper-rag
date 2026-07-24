@@ -1,0 +1,62 @@
+[
+  {
+    "question": "How many attention heads does the base Transformer model use?",
+    "answer": "8 attention heads.",
+    "source": "Attention Is All You Need",
+    "verified": false
+  },
+  {
+    "question": "How many layers are in the encoder and decoder stacks of the Transformer?",
+    "answer": "6 layers each.",
+    "source": "Attention Is All You Need",
+    "verified": false
+  },
+  {
+    "question": "What is the model dimension (d_model) of the base Transformer?",
+    "answer": "512.",
+    "source": "Attention Is All You Need",
+    "verified": false
+  },
+  {
+    "question": "Why does scaled dot-product attention divide by the square root of d_k?",
+    "answer": "To counteract large dot products that push the softmax into regions with very small gradients, which would slow learning.",
+    "source": "Attention Is All You Need",
+    "verified": false
+  },
+  {
+    "question": "What optimizer is used to train the Transformer?",
+    "answer": "Adam, with a warmup learning-rate schedule.",
+    "source": "Attention Is All You Need",
+    "verified": false
+  },
+  {
+    "question": "What are the three main components of the InstructGPT training pipeline?",
+    "answer": "Supervised fine-tuning on demonstrations, training a reward model on human preference comparisons, and reinforcement learning (PPO) against the reward model.",
+    "source": "InstructGPT",
+    "verified": false
+  },
+  {
+    "question": "What problem with standard policy gradient methods does PPO aim to solve?",
+    "answer": "It limits how far the policy can change at each update to avoid destructively large updates, giving more stable training than vanilla policy gradients while being simpler than TRPO.",
+    "source": "Proximal Policy Optimization",
+    "verified": false
+  },
+  {
+    "question": "What is the key mechanism PPO uses to constrain policy updates?",
+    "answer": "A clipped surrogate objective that limits the probability ratio between the new and old policy.",
+    "source": "Proximal Policy Optimization",
+    "verified": false
+  },
+  {
+    "question": "What does DPO eliminate compared to standard RLHF?",
+    "answer": "It removes the need to train a separate reward model and run reinforcement learning, instead optimizing the policy directly from preference data with a classification-style loss.",
+    "source": "Direct Preference Optimization",
+    "verified": false
+  },
+  {
+    "question": "In RLHF, what is the reward model trained on?",
+    "answer": "Human preference comparisons between pairs (or rankings) of model outputs.",
+    "source": "Deep Reinforcement Learning from Human Preferences",
+    "verified": false
+  }
+]

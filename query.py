@@ -22,7 +22,9 @@ for page in chunks:
 
 prompt =\
       f"Using the context {content} and NOTHING ELSE,\
-      answer the question \"{question}\"."
+      answer the question \"{question}\". If you don't \
+        know the answer, state that you don't know instead \
+            of guessing or trying to make something up."
 
 chat = ChatOllama(model="llama3")
 context_answer = chat.invoke(prompt)

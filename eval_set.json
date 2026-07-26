@@ -32,7 +32,7 @@
   {
     "question": "What are the three main components of the InstructGPT training pipeline?",
     "answer": "Supervised fine-tuning on demonstrations, training a reward model on human preference comparisons, and reinforcement learning (PPO) against the reward model.",
-    "source": "InstructGPT",
+    "source": "Training Language Models to Follow Instructions with Human Feedback",
     "verified": false
   },
   {

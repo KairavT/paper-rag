@@ -38,19 +38,19 @@
   {
     "question": "What problem with standard policy gradient methods does PPO aim to solve?",
     "answer": "It limits how far the policy can change at each update to avoid destructively large updates, giving more stable training than vanilla policy gradients while being simpler than TRPO.",
-    "source": "Proximal Policy Optimization",
+    "source": "Proximal Policy Optimization Algorithms",
     "verified": false
   },
   {
     "question": "What is the key mechanism PPO uses to constrain policy updates?",
     "answer": "A clipped surrogate objective that limits the probability ratio between the new and old policy.",
-    "source": "Proximal Policy Optimization",
+    "source": "Proximal Policy Optimization Algorithms",
     "verified": false
   },
   {
     "question": "What does DPO eliminate compared to standard RLHF?",
     "answer": "It removes the need to train a separate reward model and run reinforcement learning, instead optimizing the policy directly from preference data with a classification-style loss.",
-    "source": "Direct Preference Optimization",
+    "source": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
     "verified": false
   },
   {

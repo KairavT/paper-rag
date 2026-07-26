@@ -3,6 +3,20 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_ollama import ChatOllama
 
+title_to_file = {
+    "Deep Reinforcement Learning from Human Preferences": "1706.03741",
+    "Attention Is All You Need": "1706.03762",
+    "Proximal Policy Optimization Algorithms": "1707.06347",
+    "Training Language Models to Follow Instructions with Human Feedback": "2203.02155",
+    "Direct Preference Optimization: Your Language Model is Secretly a Reward Model": "2305.18290",
+    "Reinforcement Learning for LLM Post-Training: A Survey": "2407.16216",
+    "Towards Revealing the Effectiveness of Small-Scale Fine-Tuning in R1-Style Reinforcement Learning": "2505.17988",
+    "Reinforcement Learning for Large Model: A Survey": "2508.08189",
+    "RL Is Neither a Panacea Nor a Mirage: Understanding Supervised vs. Reinforcement Learning Fine-Tuning for LLMs": "2508.16546",
+    "School of Reward Hacks: Hacking Harmless Tasks Generalizes to Misaligned Behavior in LLMs": "2508.17511",
+    "RL Fine-Tuning Heals OOD Forgetting in SFT": "2509.12235",
+}
+
 with open("eval_set.json", "r") as QAs:
     QA_list = json.load(QAs)
 

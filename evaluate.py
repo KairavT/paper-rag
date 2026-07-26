@@ -31,6 +31,7 @@ db = Chroma(
 
 chat = ChatOllama(model="llama3")
 
+sources_used = 0
 for QA in QA_list:
     Q = QA["question"]
     chunk = db.similarity_search(Q,k=3)
@@ -43,8 +44,12 @@ for QA in QA_list:
         know the answer, state that you don't know instead \
             of guessing or trying to make something up."
     qa_answer = chat.invoke(prompt_qa)
+    expected = title_to_file[QA["source"]]
+    source_used = any(expected in c.metadata["source"] for c in chunk)
     print(f"Question: {Q}\n"
           f"Expected: {QA['answer']}\n"
-          f"Output: {qa_answer.content}\n")
+          f"Output: {qa_answer.content}\n"
+          f"Expected Source Used: {source_used}\n")
+    if source_used: sources_used += 1
 
-
+print(f'{sources_used}/10 questions used the correct source')

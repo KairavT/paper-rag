@@ -32,9 +32,10 @@ db = Chroma(
 chat = ChatOllama(model="llama3")
 
 sources_used = 0
+keys_in = 0
 for QA in QA_list:
     Q = QA["question"]
-    chunk = db.similarity_search(Q,k=3)
+    chunk = db.similarity_search(Q,k=5)
     ans_content = ''
     for pg in chunk:
         ans_content += f' {pg.page_content}'
@@ -46,10 +47,15 @@ for QA in QA_list:
     qa_answer = chat.invoke(prompt_qa)
     expected = title_to_file[QA["source"]]
     source_used = any(expected in c.metadata["source"] for c in chunk)
+    keyword_in = any(kw.lower() in qa_answer.content.lower() for kw in QA["keywords"])
     print(f"Question: {Q}\n"
           f"Expected: {QA['answer']}\n"
           f"Output: {qa_answer.content}\n"
-          f"Expected Source Used: {source_used}\n")
+          f"Expected Source Used: {source_used}\n"
+          f"Contains Expected Keywords: {keyword_in}\n")
     if source_used: sources_used += 1
+    if keyword_in: keys_in +=1
 
-print(f'{sources_used}/10 questions used the correct source')
+
+print(f'{sources_used}/10 questions used the correct source,\
+      {keys_in}/10 questions contained an expected keyword')

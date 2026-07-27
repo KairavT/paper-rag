@@ -7,8 +7,8 @@ loader = PyPDFDirectoryLoader('papers')
 loaded = loader.load()
 
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=1000,
-    chunk_overlap=200
+    chunk_size=1500,
+    chunk_overlap=300
 )
 
 post_split = splitter.split_documents(loaded)

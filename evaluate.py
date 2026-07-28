@@ -78,5 +78,5 @@ for QA in QA_list:
     if keyword_in: keys_in +=1
 
 
-print(f'{sources_used}/10 questions used the correct source,\
-      {keys_in}/10 questions contained an expected keyword')
+print(f'{sources_used}/{len(QA_list)} questions used the correct source,\
+      {keys_in}/{len(QA_list)} questions contained an expected keyword')

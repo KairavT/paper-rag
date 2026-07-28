@@ -2,6 +2,9 @@ import json
 from langchain_ollama import OllamaEmbeddings
 from langchain_chroma import Chroma
 from langchain_ollama import ChatOllama
+from sentence_transformers import CrossEncoder
+
+reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 title_to_file = {
     "Deep Reinforcement Learning from Human Preferences": "1706.03741",
@@ -36,11 +39,20 @@ keys_in = 0
 for QA in QA_list:
 
     Q = QA["question"]
-    chunk = db.similarity_search(Q,k=5)
+    chunk = db.similarity_search(Q,k=20)
+    
+
+    pairs = [[Q, c.page_content] for c in chunk]
+    scores = reranker.predict(pairs)
+    
+    paired_chunks = zip(chunk, scores)
+    paired_chunks = sorted(paired_chunks\
+                           , key=lambda pair: pair[1], reverse=True)
+    paired_chunks = paired_chunks[:5]
 
     ans_content = ''
-    for pg in chunk:
-        ans_content += f' {pg.page_content}'
+    for pair in paired_chunks:
+        ans_content += f' {pair[0].page_content}'
 
     prompt_qa =\
       f"Using the context {ans_content} and NOTHING ELSE,\
@@ -51,7 +63,7 @@ for QA in QA_list:
 
     expected = title_to_file[QA["source"]]
 
-    source_used = any(expected in c.metadata["source"] for c in chunk)
+    source_used = any(expected in pair[0].metadata["source"] for pair in paired_chunks)
     keyword_in = any(kw.lower() in qa_answer.content.lower() for kw in QA["keywords"])
     
     print(f"Question: {Q}\n"
@@ -60,6 +72,8 @@ for QA in QA_list:
           f"Expected Source Used: {source_used}\n"
           f"Contains Expected Keywords: {keyword_in}\n")
     
+    
+
     if source_used: sources_used += 1
     if keyword_in: keys_in +=1
 

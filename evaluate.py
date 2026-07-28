@@ -49,10 +49,12 @@ for QA in QA_list:
     paired_chunks = sorted(paired_chunks\
                            , key=lambda pair: pair[1], reverse=True)
     paired_chunks = paired_chunks[:5]
+    
+    top5 = [pair[0] for pair in paired_chunks]
 
     ans_content = ''
-    for pair in paired_chunks:
-        ans_content += f' {pair[0].page_content}'
+    for c in top5:
+        ans_content += f' {c.page_content}'
 
     prompt_qa =\
       f"Using the context {ans_content} and NOTHING ELSE,\
@@ -63,7 +65,7 @@ for QA in QA_list:
 
     expected = title_to_file[QA["source"]]
 
-    source_used = any(expected in pair[0].metadata["source"] for pair in paired_chunks)
+    source_used = any(expected in c.metadata["source"] for c in top5)
     keyword_in = any(kw.lower() in qa_answer.content.lower() for kw in QA["keywords"])
     
     print(f"Question: {Q}\n"

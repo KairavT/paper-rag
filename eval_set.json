@@ -117,5 +117,26 @@
     "source": "Towards Revealing the Effectiveness of Small-Scale Fine-Tuning in R1-Style Reinforcement Learning",
     "keywords": ["GRPO", "8 responses"],
     "verified": true
+  },
+  {
+    "question": "In the InstructGPT paper, how does the 1.3B InstructGPT model compare to the 175B GPT-3 in human evaluations?",
+    "answer": "Outputs from the 1.3B InstructGPT model are preferred to those from the 175B GPT-3, despite InstructGPT having 100x fewer parameters.",
+    "source": "Training Language Models to Follow Instructions with Human Feedback",
+    "keywords": ["1.3B", "175B", "preferred"],
+    "verified": true
+  },
+  {
+    "question": "How many contractors did the InstructGPT authors hire to label their data?",
+    "answer": "40 contractors.",
+    "source": "Training Language Models to Follow Instructions with Human Feedback",
+    "keywords": ["40"],
+    "verified": true
+  },
+  {
+    "question": "What three properties does the InstructGPT paper say they want aligned language models to have?",
+    "answer": "Helpful, honest, and harmless.",
+    "source": "Training Language Models to Follow Instructions with Human Feedback",
+    "keywords": ["helpful", "honest", "harmless"],
+    "verified": true
   }
 ]

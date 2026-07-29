@@ -68,5 +68,54 @@
     "source": "Deep Reinforcement Learning from Human Preferences",
     "keywords":["preference", "comparison", "human", "pairwise", "ranking"],
     "verified": false
+  },
+  {
+    "question": "According to the RL for LLM Post-Training survey, what single theoretical framework do the authors use to unify pretraining, SFT, RLHF, and RLVR?",
+    "answer": "A single unified policy gradient framework, which expresses pretraining, SFT, RLHF, and RLVR as special cases.",
+    "source": "Reinforcement Learning for LLM Post-Training: A Survey",
+    "keywords": ["policy gradient", "unified"],
+    "verified": true
+  },
+  {
+    "question": "In the RL for LLM Post-Training survey, what two categories of RL-based post-training methods are named, and give an example of each?",
+    "answer": "RLHF methods such as DPO, and RLVR (Reinforcement Learning with Verifiable Rewards) approaches such as PPO and GRPO.",
+    "source": "Reinforcement Learning for LLM Post-Training: A Survey",
+    "keywords": ["RLHF", "RLVR"],
+    "verified": true
+  },
+  {
+    "question": "The RL for LLM Post-Training survey decomposes PPO- and GRPO-based methods along which three axes?",
+    "answer": "Prompt sampling, response sampling, and gradient coefficient.",
+    "source": "Reinforcement Learning for LLM Post-Training: A Survey",
+    "keywords": ["prompt sampling", "response sampling", "gradient coefficient"],
+    "verified": true
+  },
+  {
+    "question": "In the small-scale R1-style RL paper, what is 're-distillation' and what does it achieve?",
+    "answer": "Re-distillation is distilling the RL-trained policy's outputs back into the base model via SFT; it lets pure SFT match the RL-trained policy's performance without running RL.",
+    "source": "Towards Revealing the Effectiveness of Small-Scale Fine-Tuning in R1-Style Reinforcement Learning",
+    "keywords": ["re-distillation", "SFT", "without RL"],
+    "verified": true
+  },
+  {
+    "question": "How many SFT samples does the small-scale R1-style RL paper show are enough to reproduce RL's performance?",
+    "answer": "Fewer than 1K (1,000) SFT samples.",
+    "source": "Towards Revealing the Effectiveness of Small-Scale Fine-Tuning in R1-Style Reinforcement Learning",
+    "keywords": ["1K", "1000", "fewer than"],
+    "verified": true
+  },
+  {
+    "question": "What reward function does the small-scale R1-style RL paper use on the K&K and MATH datasets?",
+    "answer": "A binary reward function that outputs only 0 or 1, requiring an end-of-sentence token for a correctness reward.",
+    "source": "Towards Revealing the Effectiveness of Small-Scale Fine-Tuning in R1-Style Reinforcement Learning",
+    "keywords": ["binary", "0 or 1"],
+    "verified": true
+  },
+  {
+    "question": "In the small-scale R1-style RL paper, what RL algorithm and rollout configuration are used for training?",
+    "answer": "GRPO, with 8 responses sampled per question at temperature 0.7 and max length 4096.",
+    "source": "Towards Revealing the Effectiveness of Small-Scale Fine-Tuning in R1-Style Reinforcement Learning",
+    "keywords": ["GRPO", "8 responses"],
+    "verified": true
   }
 ]

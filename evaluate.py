@@ -4,6 +4,8 @@ from langchain_chroma import Chroma
 from langchain_ollama import ChatOllama
 from sentence_transformers import CrossEncoder
 
+USE_RERANK = True
+
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 title_to_file = {
@@ -41,16 +43,18 @@ for QA in QA_list:
     Q = QA["question"]
     chunk = db.similarity_search(Q,k=20)
     
-
-    pairs = [[Q, c.page_content] for c in chunk]
-    scores = reranker.predict(pairs)
-    
-    paired_chunks = zip(chunk, scores)
-    paired_chunks = sorted(paired_chunks\
-                           , key=lambda pair: pair[1], reverse=True)
-    paired_chunks = paired_chunks[:5]
-    
-    top5 = [pair[0] for pair in paired_chunks]
+    if USE_RERANK:
+        pairs = [[Q, c.page_content] for c in chunk]
+        scores = reranker.predict(pairs)
+        
+        paired_chunks = zip(chunk, scores)
+        paired_chunks = sorted(paired_chunks
+                            , key=lambda pair: pair[1], reverse=True)
+        paired_chunks = paired_chunks[:5]
+        
+        top5 = [pair[0] for pair in paired_chunks]
+    else: 
+        top5 = chunk[:5]
 
     ans_content = ''
     for c in top5:

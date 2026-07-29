@@ -79,7 +79,6 @@ for QA in QA_list:
           f"Contains Expected Keywords: {keyword_in}\n")
     
     
-
     if source_used: sources_used += 1
     if keyword_in: keys_in +=1
 

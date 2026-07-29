@@ -32,7 +32,7 @@ db = Chroma(
     persist_directory="chroma_db"
 )
 
-chat = ChatOllama(model="llama3")
+chat = ChatOllama(model="llama3", temperature=0)
 
 sources_used = 0
 keys_in = 0

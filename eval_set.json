@@ -60,7 +60,7 @@
     "answer": "It removes the need to train a separate reward model and run reinforcement learning, instead optimizing the policy directly from preference data with a classification-style loss.",
     "source": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
     "keywords":["reward model", "reinforcement learning", "RL", "directly", "without"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "In RLHF, what is the reward model trained on?",

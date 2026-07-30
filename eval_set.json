@@ -39,7 +39,7 @@
     "answer": "Supervised fine-tuning on demonstrations, training a reward model on human preference comparisons, and reinforcement learning (PPO) against the reward model.",
     "source": "Training Language Models to Follow Instructions with Human Feedback",
     "keywords":["Supervised", "Supervision", "reward", "reinforcement learning", "RL"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "What problem with standard policy gradient methods does PPO aim to solve?",

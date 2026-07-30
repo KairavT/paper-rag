@@ -53,7 +53,7 @@
     "answer": "A clipped surrogate objective that limits the probability ratio between the new and old policy.",
     "source": "Proximal Policy Optimization Algorithms",
     "keywords":["surrogate", "probability ratio"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "What does DPO eliminate compared to standard RLHF?",

@@ -4,7 +4,7 @@
     "answer": "8 attention heads.",
     "source": "Attention Is All You Need",
     "keywords":["8"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "How many layers are in the encoder and decoder stacks of the Transformer?",

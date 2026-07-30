@@ -46,7 +46,7 @@
     "answer": "It limits how far the policy can change at each update to avoid destructively large updates, giving more stable training than vanilla policy gradients while being simpler than TRPO.",
     "source": "Proximal Policy Optimization Algorithms",
     "keywords":["large update", "destructive", "stable", "trust region", "step size", "too far"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "What is the key mechanism PPO uses to constrain policy updates?",

@@ -11,7 +11,7 @@
     "answer": "6 layers each.",
     "source": "Attention Is All You Need",
     "keywords":["6"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "What is the model dimension (d_model) of the base Transformer?",

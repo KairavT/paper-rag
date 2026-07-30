@@ -18,7 +18,7 @@
     "answer": "512.",
     "source": "Attention Is All You Need",
     "keywords":["512"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "Why does scaled dot-product attention divide by the square root of d_k?",

@@ -32,7 +32,7 @@
     "answer": "Adam, with a warmup learning-rate schedule.",
     "source": "Attention Is All You Need",
     "keywords":["Adam"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "What are the three main components of the InstructGPT training pipeline?",

@@ -25,7 +25,7 @@
     "answer": "To counteract large dot products that push the softmax into regions with very small gradients, which would slow learning.",
     "source": "Attention Is All You Need",
     "keywords":["dot product", "softmax", "gradients"],
-    "verified": false
+    "verified": true
   },
   {
     "question": "What optimizer is used to train the Transformer?",
